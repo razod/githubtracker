@@ -15,7 +15,8 @@ app.get('/', async (req, res) => {
     const json = await api.json();
     if(json.message) {
       return res.render('error', {
-        error: json.message
+        error: json.message,
+        errormsg: 'Error (from Github)'
       })
     }
     const repos = [];
@@ -34,7 +35,8 @@ app.get('/get/:id', async (req, res) => {
   const json = await api.json();
   if(json.message) {
     return res.render('error', {
-      error: json.message
+      error: json.message,
+      errormsg: 'Error (from Github)'
     })
   }
       res.render('index', {
