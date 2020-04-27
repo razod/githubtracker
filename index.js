@@ -14,7 +14,7 @@ app.get('/', async (req, res) => {
     })
     const json = await api.json();
     if(json.message) {
-      return res.status(400).send('Error... ' + json.message);
+      return res.status(400).send('<h1>Error...</h1> ' + json.message);
     }
     const repos = [];
         res.render('index', {
@@ -25,15 +25,14 @@ app.get('/', async (req, res) => {
 
 app.get('/get/:id', async (req, res) => {
   var id = req.params.id;
-  const api = await fetch(`https://api.github.com/users/${id}/repos`).catch(err => {
-    if(err) {
-      return res.status(400).send('Error getting repos..')
-    }
-  })
+  const api = await fetch(`https://api.github.com/users/${id}/repos`);
   if(!api) {
     return res.status(400).send('Error getting repos..')
   }
   const json = await api.json();
+  if(json.message) {
+    return res.status(400).send('<h1>Error...</h1> ' + json.message);
+  }
       res.render('index', {
         json,
         name: id
