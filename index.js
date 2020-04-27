@@ -14,7 +14,9 @@ app.get('/', async (req, res) => {
     })
     const json = await api.json();
     if(json.message) {
-      return res.status(400).send('<h1>Error...</h1> ' + json.message);
+      return res.render('error', {
+        error: json.message
+      })
     }
     const repos = [];
         res.render('index', {
@@ -31,7 +33,9 @@ app.get('/get/:id', async (req, res) => {
   }
   const json = await api.json();
   if(json.message) {
-    return res.status(400).send('<h1>Error...</h1> ' + json.message);
+    return res.render('error', {
+      error: json.message
+    })
   }
       res.render('index', {
         json,
