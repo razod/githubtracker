@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="icon" type="image/png" href="/base.png">
+    <title>Nexh's Projects</title>
+  </head>
+  <body>
+    <header>
+    <div class="nav-container">
+      <a class="logo" href="/"><span><%= name %>'s Projects</span></a>
+      <a href="https://github.com/razod/githubtracker" target="_blank" class="cta">Github</a>
+    </div>
+  </header>
+    <% Object.keys(json).forEach(repo => { %>
+      <div class="dashboard" style="height:auto!important">
+          <h1>
+            <a href="https://github.com/<%= (json[repo].full_name); %>"><h2><%= (json[repo].name); %></h2></a>
+          </h1>
+          <p>
+            <i class="fas fa-code-branch"></i> <%= (json[repo].forks_count); %> | <i class="fas fa-star"></i> <%= (json[repo].stargazers_count); %> | <%= (json[repo].language); %>
+          </p>
+      </div>
+      <% }) %>
+  </div>
+  <script src="https://kit.fontawesome.com/63ff00b443.js" crossorigin="anonymous"></script>
+  </body>
+</html>
