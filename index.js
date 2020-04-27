@@ -34,14 +34,6 @@ app.get('/get/:id', async (req, res) => {
     return res.status(400).send('Error getting repos..')
   }
   const json = await api.json();
-  const repos = [];
-  Object.keys(json).forEach(key => {
-
-      // console.log(json[key].name);
-  })
-      // res.render('index', {
-        //  repos: repos
-      //});
       res.render('index', {
         json,
         name: id
