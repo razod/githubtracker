@@ -25,7 +25,7 @@
             <a href="<%= (json[repo].url); %>"><h2><%= (json[repo].author); %>/<%= (json[repo].name); %></h2></a>
           </h1>
           <p>
-            <i class="fas fa-code-branch"></i> <%= (json[repo].forks); %> | <i class="fas fa-star"></i> <%= (json[repo].stars); %> |<span style="color:<%= (json[repo].languageColor); %>;"> <%= (json[repo].language); %></span>
+           <span class="forks"><i class="fas fa-code-branch"></i> <%= (json[repo].forks); %></span> | <span class="stars"><i class="fas fa-star"></i> <%= (json[repo].stars); %></span> | <span style="color:<%= (json[repo].languageColor); %>;"> <%= (json[repo].language); %></span>
           </p>
       </div>
       <% }) %>
