@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
         })
 });
 
-app.get('/get/:id', async (req, res) => {
+app.get('/u/:id', async (req, res) => {
   var id = req.params.id;
   const api = await fetch(`https://api.github.com/users/${id}/repos`);
   if(!api) {
