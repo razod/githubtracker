@@ -175,6 +175,10 @@ form input[type="submit"]:hover {
   box-shadow: 0 10px 26px rgba(6, 8, 10, 0.226);
 }
 
+.stars {
+  color: #e3e7ac;
+}
+
 .dashboard {
   background:rgb(48, 48, 48);
   padding:2%;
