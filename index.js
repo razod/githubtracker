@@ -44,4 +44,22 @@ app.get('/u/:id', async (req, res) => {
         name: id
       })
 });
+
+app.get('/trending', async (req, res) => {
+  var id = req.params.id;
+  const api = await fetch(`https://ghapi.huchen.dev/`);
+  if(!api) {
+    return res.status(400).send('Error getting repos..')
+  }
+  const json = await api.json();
+  if(json.message) {
+    return res.render('error', {
+      error: json.message,
+      errormsg: 'Error (from Github)'
+    })
+  }
+      res.render('trending', {
+        json
+      })
+});
 app.listen(4000, console.log('http://localhost:4000'));

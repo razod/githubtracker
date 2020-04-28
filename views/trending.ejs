@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../index.css">
     <link rel="icon" type="image/png" href="/base.png">
-    <title><%= name %> | GHTracker</title>
+    <title>Trending | GHTracker</title>
   </head>
   <body>
     <header>
     <div class="nav-container">
-      <a class="logo" href="/"><span><%= name %>'s Projects</span></a>
+      <a class="logo" href="/"><span>Trending Repos</span></a>
       <nav>
         <ul class="nav-links">
-          <li><a href="/trending">trending</a></li>
+          <li><a href="/">home</a></li>
         </ul>
       </nav>
       <a href="https://github.com/razod/githubtracker" target="_blank" class="cta">Github</a>
@@ -22,10 +22,10 @@
     <% Object.keys(json).forEach(repo => { %>
       <div class="dashboard" style="height:auto!important">
           <h1>
-            <a href="https://github.com/<%= (json[repo].full_name); %>"><h2><%= (json[repo].name); %></h2></a>
+            <a href="<%= (json[repo].url); %>"><h2><%= (json[repo].name); %></h2></a>
           </h1>
           <p>
-            <i class="fas fa-code-branch"></i> <%= (json[repo].forks_count); %> | <i class="fas fa-star"></i> <%= (json[repo].stargazers_count); %> | <%= (json[repo].language); %>
+            <i class="fas fa-code-branch"></i> <%= (json[repo].forks); %> | <i class="fas fa-star"></i> <%= (json[repo].stars); %> |<span style="color:<%= (json[repo].languageColor); %>;"> <%= (json[repo].language); %></span>
           </p>
       </div>
       <% }) %>
