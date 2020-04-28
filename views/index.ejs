@@ -10,10 +10,10 @@
   <body>
     <header>
     <div class="nav-container">
-      <a class="logo" href="/"><span><%= name %>'s Projects</span></a>
+      <a class="logo" href="/"><span><%= name %>'s Projects | GHTracker </span></a>
       <nav>
         <ul class="nav-links">
-          <li><a href="/trending">trending</a></li>
+          <li><a href="/">trending</a></li>
         </ul>
       </nav>
       <a href="https://github.com/razod/githubtracker" target="_blank" class="cta">Github</a>
@@ -22,7 +22,7 @@
     <% Object.keys(json).forEach(repo => { %>
       <div class="dashboard" style="height:auto!important">
           <h1>
-            <a href="https://github.com/<%= (json[repo].full_name); %>"><h2><%= (json[repo].full_name); %></h2></a>
+            <a href="https://github.com/<%= (json[repo].full_name); %>"><h2><%= (json[repo].owner.login); %> / <%= (json[repo].name); %></h2></a>
           </h1>
           <p>
             <span class="forks"><i class="fas fa-code-branch"></i> <%= (json[repo].forks_count); %></span> | <span class="stars"> <i class="fas fa-star"></i> <%= (json[repo].stargazers_count); %></span> | <span class="lang"><%= (json[repo].language); %></span>

@@ -30,6 +30,11 @@ app.get('/u/:id', async (req, res) => {
     return res.status(400).send('Error getting repos..')
   }
   const json = await api.json();
+  if(json == '') {
+    return res.render('error', {
+      error: `The user ${id} has no repositories.`,
+      errormsg: 'No repositories'
+    })};
   if(json.message) {
     return res.render('error', {
       error: json.message,

@@ -17,7 +17,7 @@
     <% Object.keys(json).forEach(repo => { %>
       <div class="dashboard" style="height:auto!important">
           <h1>
-            <a href="<%= (json[repo].url); %>"><h2><%= (json[repo].author); %>/<%= (json[repo].name); %></h2></a>
+            <a href="<%= (json[repo].url); %>"><h2><%= (json[repo].author); %> / <%= (json[repo].name); %></h2></a>
           </h1>
           <p>
            <span class="forks"><i class="fas fa-code-branch"></i> <%= (json[repo].forks); %></span> | <span class="stars"><i class="fas fa-star"></i> <%= (json[repo].stars); %></span> | <span style="color:<%= (json[repo].languageColor); %>;"> <%= (json[repo].language); %></span>
